@@ -1,0 +1,26 @@
+{
+  "name": "cocktail-assistant-assignment",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/ionut/cocktail-assistant-assignment#readme",
+  "bugs": {
+    "url": "https://github.com/ionut/cocktail-assistant-assignment/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionut/cocktail-assistant-assignment.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+  },
+  "dependencies": {
+    "@pionjs/pion": "^2.8.3"
+  },
+  "devDependencies": {
+    "es-dev-server": "^2.1.0"
+  }
+}
