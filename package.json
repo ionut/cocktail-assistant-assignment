@@ -15,12 +15,19 @@
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
-    "start": "es-dev-server --app-index index.html --node-resolve --watch --open"
+    "serve": "es-dev-server --app-index build/index.html --open",
+    "start": "es-dev-server --app-index index.html --node-resolve --watch --open",
+    "build": "rollup -c"
   },
   "dependencies": {
     "@pionjs/pion": "^2.8.3"
   },
   "devDependencies": {
-    "es-dev-server": "^2.1.0"
+    "es-dev-server": "^2.1.0",
+    "rimraf": "^3.0.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.1.0",
+    "rollup": "^2.36.2",
+    "rollup-plugin-terser": "^7.0.2"
   }
 }

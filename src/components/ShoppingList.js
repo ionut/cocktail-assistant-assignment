@@ -28,8 +28,6 @@ export const ShoppingList = virtual(
           list-style: none;
           padding: 0;
           margin: 0;
-          max-height: 100%;
-          overflow-y: auto;
         }
 
         .shopping-item {
