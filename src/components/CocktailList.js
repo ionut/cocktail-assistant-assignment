@@ -1,7 +1,7 @@
 import { html, virtual } from "@pionjs/pion";
 
 const CocktailCard = ({ cocktail, addToShopingList }) => {
-  return html`<li class="cocktail-card">
+  return html`<li class="cocktail-card" role="cocktail-item">
       <img
         src="${cocktail.strDrinkThumb}"
         alt="${cocktail.strDrink} image"

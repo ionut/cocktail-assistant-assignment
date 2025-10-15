@@ -1,4 +1,4 @@
-import { fn } from "storybook/test";
+import { expect, fn } from "storybook/test";
 
 import { CocktailList } from "../components/CocktailList";
 
@@ -26,6 +26,21 @@ export const CocktailsWithItems = {
         strDrinkThumb: "test",
       },
     ],
+  },
+
+  play: async ({ args, canvas, userEvent }) => {
+    const shoppingList = canvas.getAllByRole("cocktail-item");
+
+    await expect(shoppingList).toHaveLength(1);
+
+    const submitButton = canvas.getByRole("button");
+    await userEvent.click(submitButton);
+    await expect(args.addToShopingList).toHaveBeenCalledWith({
+      strDrink: "Margarita",
+      strInstructions:
+        "Place all ingredients in a blender and blend until smooth. This makes one drink.",
+      strDrinkThumb: "test",
+    });
   },
 };
 

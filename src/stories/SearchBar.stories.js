@@ -10,11 +10,28 @@ export default {
   args: { onSearch: fn() },
 };
 
-export const EmptySearchBarInput = {};
+export const EmptySearchBarInput = {
+  play: async ({ args, canvas, userEvent, step }) => {
+    await step("Empty input", async () => {
+      await userEvent.click(canvas.getByRole("button", { name: "Search" }));
+
+      await expect(args.onSearch).not.toHaveBeenCalled();
+    });
+
+    await step("Empty string", async () => {
+      await userEvent.type(
+        canvas.getByPlaceholderText("Search for a cocktail"),
+        "       "
+      );
+      await userEvent.click(canvas.getByRole("button", { name: "Search" }));
+
+      await expect(args.onSearch).not.toHaveBeenCalled();
+    });
+  },
+};
 
 export const FilledSearchBarInput = {
   play: async ({ args, canvas, userEvent }) => {
-    console.log(canvas);
     await userEvent.type(
       canvas.getByPlaceholderText("Search for a cocktail"),
       "marga"
