@@ -1,6 +1,6 @@
 import { html, virtual } from "@pionjs/pion";
 
-const CocktailCard = virtual(({ cocktail, addToShopingList }) => {
+const CocktailCard = ({ cocktail, addToShopingList }) => {
   return html`<li class="cocktail-card">
       <img
         src="${cocktail.strDrinkThumb}"
@@ -53,9 +53,13 @@ const CocktailCard = virtual(({ cocktail, addToShopingList }) => {
         transform: scale(0.95);
       }
     </style> `;
-});
+};
 
-export const CocktailList = virtual(({ cocktails, addToShopingList }) => {
+export const CocktailList = ({ cocktails, addToShopingList }) => {
+  if (cocktails.length === 0) {
+    return html`<p class="no-results">Search for cocktails to get started!</p>`;
+  }
+
   return html`<ul>
       ${cocktails.map((cocktail) =>
         CocktailCard({ cocktail, addToShopingList })
@@ -70,4 +74,4 @@ export const CocktailList = virtual(({ cocktails, addToShopingList }) => {
         gap: 1rem;
       }
     </style> `;
-});
+};

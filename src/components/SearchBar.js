@@ -1,20 +1,18 @@
-import { html, useState, virtual } from "@pionjs/pion";
+import { html } from "@pionjs/pion";
 
-export const SearchBar = virtual(({ onSearch }) => {
-  const [query, setQuery] = useState("");
+export const SearchBar = ({ onSearch }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const query = e.target.cocktail.value;
+    const query = e.target.cocktail.value;
     if (!query.trim()) return;
     onSearch(query);
   };
   return html`<form @submit=${handleSubmit}>
       <input
+        id="query"
         type="text"
         name="cocktail"
         placeholder="Search for a cocktail"
-        .value=${query}
-        @input=${(e) => setQuery(e.target.value)}
       />
       <button type="submit" class="search-button">Search</button>
     </form>
@@ -39,4 +37,4 @@ export const SearchBar = virtual(({ onSearch }) => {
         cursor: pointer;
       }
     </style>`;
-});
+};

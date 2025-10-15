@@ -44,9 +44,7 @@ function App() {
         ingredients
       );
 
-      if (addedCount > 0) {
-        showToast("Ingredients added to shopping list.");
-      }
+      showToast("Ingredients added to shopping list.");
 
       return newList;
     });
@@ -70,17 +68,11 @@ function App() {
         </div>
         <div class="main-section">
           <div class="results-section">
-            ${cocktails.length === 0 && !isSearching
-              ? html`<p class="no-results">
-                  Search for cocktails to get started!
-                </p>`
-              : CocktailList({ cocktails, addToShopingList })}
+            ${CocktailList({ cocktails, addToShopingList })}
           </div>
           <div class="shopping-section">
             <h2 class="list-header">Shopping List</h2>
-            ${shoppingList.length === 0
-              ? html`<p class="no-results">No items yet</p>`
-              : ShoppingList({ shoppingList, removeFromShoppingList })}
+            ${ShoppingList({ shoppingList, removeFromShoppingList })}
             <button
               class="print-button"
               @click=${handlePrint}
@@ -117,11 +109,6 @@ function App() {
       }
       .results-section {
         grid-column: span 2;
-      }
-      .no-results {
-        color: #4e4f50;
-        opacity: 0.5;
-        font-size: 1.2rem;
       }
       .shopping-section {
         position: sticky;

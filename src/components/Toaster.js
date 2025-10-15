@@ -1,6 +1,6 @@
 import { html, virtual } from "@pionjs/pion";
 
-export const Toaster = virtual(({ toasterMessage }) => {
+export const Toaster = ({ toasterMessage }) => {
   return html`<div class="toaster">${toasterMessage}</div>
     <style>
       .toaster {
@@ -25,4 +25,4 @@ export const Toaster = virtual(({ toasterMessage }) => {
         }
       }
     </style>`;
-});
+};
